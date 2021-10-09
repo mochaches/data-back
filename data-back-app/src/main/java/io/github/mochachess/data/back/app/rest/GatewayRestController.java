@@ -14,8 +14,11 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @ConditionalOnProperty("server.enabled")
@@ -30,10 +33,12 @@ import org.springframework.web.bind.annotation.RestController;
 )
 public class GatewayRestController implements GatewayRestApi {
 
+    final GatewayRestApi gatewayRestApi;
+
     @Override
-    @PostMapping("/getDecks")
+    @PostMapping("/getData")
     @Operation(tags = "Data", summary = "DATA_GET_REQUEST", description = "Получение данных")
-    public ResponseEntity<BaseResponse<GetDataResponse>> getData(GetDataRequest request) throws GatewayLogicException {
-        return null;
+    public ResponseEntity<BaseResponse<GetDataResponse>> getData(@Valid @RequestBody GetDataRequest request) throws GatewayLogicException {
+        return gatewayRestApi.getData(request);
     }
 }

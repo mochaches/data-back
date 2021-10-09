@@ -10,14 +10,12 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
-import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 import org.springframework.web.util.UriBuilderFactory;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Configuration
-@EnableRetry
 public class DataProxyClientConfig extends HttpClientConfigurer {
 
     @Bean("data.proxy.client")

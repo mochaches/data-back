@@ -17,6 +17,9 @@ import java.util.List;
 @Schema(title = "Get data info")
 public class GetDataProxyResponse {
     @NotNull
+    @Schema(title = "id данных")
+    String id;
+    @NotNull
     @Schema(title = "Data list", required = true)
     List<DataProxyDto> data;
 }

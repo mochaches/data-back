@@ -19,5 +19,5 @@ public class GetDataResponse {
     @NotNull
     @Schema(title = "id данных")
     String id;
-    List<DataDto> dataSetDto;
+    List<DataDto> data;
 }

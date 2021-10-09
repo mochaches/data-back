@@ -17,25 +17,12 @@
             <artifactId>spring-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.mochachess</groupId>
             <artifactId>data-domain-base</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.mochachess</groupId>
-            <artifactId>data-rest-gateway-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.mochachess</groupId>
-            <artifactId>data-rest-gateway-api</artifactId>
         </dependency>
     </dependencies>
 

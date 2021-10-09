@@ -1,6 +1,6 @@
 package io.github.mochachess.data.provider.proxy.api.request;
 
-import io.github.mochachess.data.rest.gateway.api.domain.dto.DataDto;
+import io.github.mochachess.data.provider.proxy.api.dto.DataProxyDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,5 +19,5 @@ public class GetDataProxyRequest {
     @NotNull
     @Schema(title = "Data id", required = true)
     String id;
-    List<DataDto> data;
+    List<DataProxyDto> data;
 }

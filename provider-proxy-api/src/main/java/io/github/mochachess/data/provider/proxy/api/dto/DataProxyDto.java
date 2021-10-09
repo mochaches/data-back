@@ -15,7 +15,7 @@ import java.util.List;
 @Schema(title = "Data info")
 public class DataProxyDto {
     @Schema(title = "Data name")
-    String name;
-    @Schema(title = "Params")
-    List<ParamProxyDto> params;
+    String id;
+//    @Schema(title = "Params")
+//    List<ParamProxyDto> params;
 }

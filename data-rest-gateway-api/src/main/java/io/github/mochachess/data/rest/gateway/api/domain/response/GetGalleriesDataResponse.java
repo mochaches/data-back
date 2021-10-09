@@ -1,6 +1,6 @@
-package io.github.mochachess.data.provider.proxy.api.response;
+package io.github.mochachess.data.rest.gateway.api.domain.response;
 
-import io.github.mochachess.data.provider.proxy.api.dto.DataProxyDto;
+import io.github.mochachess.data.rest.gateway.api.domain.dto.DataDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,12 +14,11 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(title = "Get data info")
-public class GetDataProxyResponse {
+@Schema(title = "Информация о датасетах")
+public class GetGalleriesDataResponse {
     @NotNull
     @Schema(title = "id данных")
-    String id;
-    @NotNull
-    @Schema(title = "Data list", required = true)
-    List<DataProxyDto> data;
+    String urn;
+    String name;
+    String label;
 }

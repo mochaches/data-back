@@ -3,12 +3,12 @@ package io.github.mochachess.data.back.app.domain.service.impl;
 import io.github.mochachess.data.domain.model.response.base.BaseResponse;
 import io.github.mochachess.data.domain.model.response.base.ResponseStatus;
 import io.github.mochachess.data.provider.proxy.api.ProviderProxy;
-import io.github.mochachess.data.provider.proxy.api.request.GetDataProxyRequest;
 import io.github.mochachess.data.provider.proxy.client.utils.ProviderProxyResponseHandler;
 import io.github.mochachess.data.rest.gateway.api.GatewayLogicException;
 import io.github.mochachess.data.rest.gateway.api.GatewayRestApi;
-import io.github.mochachess.data.rest.gateway.api.domain.request.GetDataRequest;
-import io.github.mochachess.data.rest.gateway.api.domain.response.GetDataResponse;
+import io.github.mochachess.data.rest.gateway.api.domain.request.GetGalleryByIdRequest;
+import io.github.mochachess.data.rest.gateway.api.domain.response.GetGalleriesDataResponse;
+import io.github.mochachess.data.rest.gateway.api.domain.response.GetGalleryByIdResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -26,15 +26,20 @@ public class DataService implements GatewayRestApi {
 
     @SneakyThrows
     @Override
-    public ResponseEntity<BaseResponse<GetDataResponse>> getData(GetDataRequest request) throws GatewayLogicException {
-        var param = mapper.map(request, GetDataProxyRequest.class);
-        var response = ProviderProxyResponseHandler.getResponse(provider.getData(param));
-        var result = mapper.map(response, GetDataResponse.class);
+    public ResponseEntity<BaseResponse<GetGalleriesDataResponse>> getGalleriesData() throws GatewayLogicException {
+//        var param = mapper.map(request, GetDataProxyRequest.class);
+        var response = ProviderProxyResponseHandler.getResponse(provider.getGalleriesData());
+        var result = mapper.map(response, GetGalleriesDataResponse.class);
         return ResponseEntity.ok(
             BaseResponse
-                .<GetDataResponse>builder()
+                .<GetGalleriesDataResponse>builder()
                 .status(ResponseStatus.OK)
                 .data(result)
                 .build());
+    }
+
+    @Override
+    public ResponseEntity<BaseResponse<GetGalleryByIdResponse>> getGalleryByIdData(GetGalleryByIdRequest request) throws GatewayLogicException {
+        return null;
     }
 }
